@@ -1,11 +1,76 @@
-.container{
-    background-image: url('../images/first.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
+
+.shell {
     width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    perspective: 3px;
+}
+
+.shell div {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+
+.text {
+    height: 50vh;
+    background-color: #fff;
+}
+
+.text h1 {
+    color: #000;
+}
+
+.heading {
+    z-index: 1;
+    transform: translateY(-30vh) translateZ(1px);
+    color: #fff;
+    font-size: 30px;
+}
+
+
+.image {
+    width: 100vw;
+   height: 100vh;
+  
+    background-position: center; 
+ 
+    transform: translateZ(-1px) scale(1.6);
+    background-size: cover;
+    background-position: center; 
+
+
+    z-index: -1;
+}
+
+
+.image1 {
+    background-image: url(../images/one/fourth.jpg);
+}
+
+.image2 {
+    background-image: url(../images/one/second.jpg);
+}
+
+.image3 {
+    background-image: url(../images/one/third.jpg);
+}
+
+.image4 {
+    background-image: url(../images/one/fourth.jpg);
+}
+
+.image5 {
+    background-image: url(../images/one/fifth.jpg);
+}
+
+.image6 {
+    background-image: url(../images/one/sixth.jpg);
+}
+
+.image7 {
+    background-image: url(../images/one/seventh.jpeg);
 }

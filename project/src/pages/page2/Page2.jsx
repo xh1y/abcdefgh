@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Page2.module.less'
 
 import HostChart from './components/HostChart';
-import CountChart from './components/CountChart';
+import CountChart from './components/CountChart'
 import src1 from '../../images/two/circle.png'
 function Page2(){
   

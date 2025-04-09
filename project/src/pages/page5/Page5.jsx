@@ -25,7 +25,7 @@ function Page5(){
              <p>
                 If you have any further questions,please let us know
              </p>
-             {/* <input type="text" name="" id="" className={styles.question}/> */}
+             <input type="text" name="" id="" className={styles.question}/>
              <button className={styles.btn}>提交</button>
            </div>)}
         </div>

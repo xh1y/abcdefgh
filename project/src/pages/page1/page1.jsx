@@ -10,14 +10,26 @@ import img7 from '../../images/one/page6.jpeg'
 
 function Page1() {
     return (
+    <div>
+         <span className={styles.title}>Olympic</span>
+           <div className={styles.head}>
+                    
+                   <span className={styles.choose1} >首页</span>
+                   <span className={styles.choose2} >历届奥运数据可视化</span>
+                   <span className={styles.choose3} >在线预测</span>
+                   <span className={styles.choose4}>操作记录</span>
+                   
+                   <span className={styles.choose5} >联系我们</span>
+                   </div>               
         <div className={styles.shell}>
+       
          <img src={img1} alt=""  className={styles.image}/>
           <div className={styles.heading}>
             <h1 className={styles.special}>Faster,Higher,Stronger</h1>
             <h1 className={styles.special}> - Together</h1>
           </div>
           <div className={styles.text}>
-            <h1>奥运超然时刻</h1>
+            <h1>奥运超燃时刻</h1>
           </div>
 
           <img src={img2} alt=""  className={styles.image}/>
@@ -43,7 +55,7 @@ function Page1() {
             <h1>全红婵</h1>
           </div>
           <div className={styles.text}>
-            <h1>拿捏</h1>
+            <h1>拿捏！</h1>
           </div>
 
           <img src={img5} alt=""  className={styles.image}/>
@@ -72,6 +84,7 @@ function Page1() {
             <h1>心怀热爱,无畏前行</h1>
           </div>
 
+        </div>
         </div>
     )
 }

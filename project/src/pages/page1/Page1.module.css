@@ -1,6 +1,6 @@
 .shell{
     padding: 0;
-    margin-left: 5vw;
+    
     height: 100vh;
     overflow-x: hidden;
      width: 100vw;
@@ -17,11 +17,12 @@
 .image{
     transform: translateZ(-1px) scale(1.6);
     background-size: cover;
-    height: 100vh;
+
+    width: 100vw;
     z-index: -1;
 }
 .text{
-    height: 90vh;
+    height: 100vh;
     background-color: #fff;
 }
 .text h1{
@@ -36,4 +37,29 @@
 }
 .special{
     font-size: 20px;
+}
+.head{
+    position: absolute;
+    top:3vh;
+    left: 20vw;
+    width: 80vw;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    gap: 6vw;
+    z-index: 10;
+}
+.title{
+    position: absolute;
+    top:2vh;
+    left: 3vw;
+    color: #fff;
+    font-size: 25px;
+    z-index: 10;
+}
+.choose1,.choose2,.choose3,.choose4,.choose5{
+   
+    font-size:20px;
+    color: #fff;
+    font-family: "SimSun", "宋体", "STSong", serif;
 }

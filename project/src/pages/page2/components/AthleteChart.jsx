@@ -8,30 +8,33 @@ const AthleteChart = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const athleteData = {
     'Michael Ii': [
-      { year: 2000, gold: 5, silver: 0, bronze: 0 },
-      { year: 2004, gold: 6, silver: 1, bronze: 0 },
-      { year: 2008, gold: 7, silver: 1, bronze: 1 },
-      { year: 2012, gold: 5, silver: 1, bronze: 1 }
+      { year: 2000, gold: 0, silver: 0, bronze: 0 },
+      { year: 2004, gold: 6, silver: 0, bronze: 2 },
+      { year: 2008, gold: 8, silver: 0, bronze: 0},
+      { year: 2012, gold: 4, silver: 2, bronze: 0 },
+      { year: 2016, gold: 5, silver: 3, bronze: 2 }
     ],
     'Larysa (diriy-)': [
-      { year: 2004, gold: 3, silver: 2, bronze: 1 },
-      { year: 2008, gold: 4, silver: 2, bronze: 2 },
-      { year: 2012, gold: 2, silver: 1, bronze: 1 }
+      { year: 1956, gold: 4, silver: 1, bronze: 1 },
+      { year: 1960, gold: 3, silver: 2, bronze: 1 },
+      { year: 1964, gold: 2, silver: 2, bronze: 2 }
     ],
     'Charles Jr.': [
-      { year: 2000, gold: 4, silver: 1, bronze: 0 },
-      { year: 2004, gold: 3, silver: 2, bronze: 1 },
-      { year: 2008, gold: 3, silver: 1, bronze: 1 }
+      { year: 1952, gold: 2, silver: 1, bronze: 1 },
+      { year: 1956, gold: 1, silver: 0, bronze: 0 },
+      { year: 1960, gold: 1, silver: 0, bronze: 0 },
+      { year: 1976, gold: 0, silver: 0, bronze: 0 },
+      { year: 1992, gold: 1, silver: 0, bronze: 0 }
     ],
     'Nikolay Andrianov': [
-      { year: 2004, gold: 3, silver: 2, bronze: 1 },
-      { year: 2008, gold: 2, silver: 2, bronze: 1 },
-      { year: 2012, gold: 2, silver: 1, bronze: 1 }
+      { year: 1972, gold: 1, silver: 1, bronze: 1 },
+      { year: 1976, gold: 4, silver: 2, bronze: 1 },
+      { year: 1980, gold: 2, silver: 2, bronze: 1 }
     ],
     'Borys Shakhlin': [
-      { year: 2000, gold: 3, silver: 1, bronze: 0 },
-      { year: 2004, gold: 2, silver: 2, bronze: 1 },
-      { year: 2008, gold: 2, silver: 1, bronze: 1 }
+      { year: 1956, gold: 2, silver: 0, bronze: 0 },
+      { year: 1960, gold: 4, silver: 2, bronze: 1 },
+      { year: 1964, gold: 1, silver: 2, bronze: 1 }
     ]
   };
 

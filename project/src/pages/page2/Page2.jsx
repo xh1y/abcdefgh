@@ -4,6 +4,8 @@ import styles from './Page2.module.less'
 import HostChart from './components/HostChart';
 import CountChart from './components/CountChart'
 import src1 from '../../images/two/circle.png'
+import AthleteChart from './components/AthleteChart';
+
 function Page2(){
   
 return (
@@ -27,11 +29,11 @@ return (
           </div>
           </div>
           <div className={styles.MedalChart}>
-              
+          
           </div>
           <div className={styles.right}>
             <div className={styles.AthleteChart}>
-           
+           <AthleteChart />
             </div>
           <img src={src1} className={styles.circle}/>
         </div>

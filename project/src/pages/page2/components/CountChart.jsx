@@ -61,12 +61,12 @@ const CountChart = () => {
         },
         axisLine: {
           lineStyle: {
-            color: '#ccc'
+            color: '#fff'
           }
         },
         splitLine: {
           lineStyle: {
-            color: '#eee'
+            color: '#fff'
           }
         }
       },

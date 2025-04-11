@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as echarts from 'echarts';
-import { LoadingOutlined } from '@ant-design/icons/lib/icons'; // 可选，用于加载状态
+import { LoadingOutlined } from '@ant-design/icons';
 
 const MedalChart = ({ 
   data = [], 

@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import * as echarts from 'echarts';
 
 const WorldMap = () => {
+  const [countryName, setCountryName] = useState('');
   useEffect(() => {
     const chartDom = document.getElementById('worldMap');
     const myChart = echarts.init(chartDom);
@@ -51,6 +52,17 @@ const WorldMap = () => {
         };
 
         myChart.setOption(option);
+             // 鼠标移动事件监听
+             myChart.on('mousemove', params => {
+              if (params && params.name) {
+                setCountryName(params.name);
+              }
+            });
+    
+            // 鼠标移出清除名称
+            myChart.on('globalout', () => {
+              setCountryName('');
+            });
       })
       .catch(error => {
         console.error('加载 world.json 失败：', error);
@@ -61,7 +73,28 @@ const WorldMap = () => {
     };
   }, []);
 
-  return <div id="worldMap" style={{ width: '50vw', height: '50vh' }} />;
-};
+  return(
+    <div>
+    <div id="worldMap" style={{ width: '50vw', height: '50vh' }} />
+    {countryName && (
+        <div style={{
+          position: 'absolute',
+          bottom: 10,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          background: 'rgba(0, 0, 0, 0.75)',
+          color: '#fff',
+          padding: '10px 20px',
+          borderRadius: '12px',
+          fontSize: '14px',
+          boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)',
+          transition: 'all 0.3s ease-in-out',
+          pointerEvents: 'none'
+        }}>
+          {countryName}
+        </div>
+      )}
+    </div>
+)};
 
 export default WorldMap;

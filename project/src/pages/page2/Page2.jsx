@@ -5,6 +5,7 @@ import HostChart from './components/HostChart';
 import CountChart from './components/CountChart'
 import src1 from '../../images/two/circle.png'
 import AthleteChart from './components/AthleteChart';
+import WorldMap from './components/WorlMap';
 
 function Page2(){
   
@@ -29,7 +30,9 @@ return (
           </div>
           </div>
           <div className={styles.MedalChart}>
-          
+            <div className={styles.WorldMap}>
+            <WorldMap />
+         </div>
           </div>
           <div className={styles.right}>
             <div className={styles.AthleteChart}>

@@ -1,8 +1,9 @@
-import React, { useEffect,useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as echarts from 'echarts';
 
 const WorldMap = () => {
   const [countryName, setCountryName] = useState('');
+
   useEffect(() => {
     const chartDom = document.getElementById('worldMap');
     const myChart = echarts.init(chartDom);
@@ -13,7 +14,6 @@ const WorldMap = () => {
         echarts.registerMap('world', worldJson);
 
         const option = {
-   
           tooltip: {
             trigger: 'item',
             formatter: '{b}',
@@ -27,20 +27,20 @@ const WorldMap = () => {
             {
               type: 'map',
               map: 'world',
-              roam: false,         // 不允许缩放或拖动
-              projection: 'none',  // 彻底禁用投影
-              aspectScale: 1,      // 宽高比为1，保持纯平面
+              roam: true, // ✅ 允许缩放和拖拽
+              aspectScale: 1,
+              center: [0, 20], // ✅ 居中位置（经度, 纬度）
+              zoom: 1.2,       // ✅ 初始缩放比例
               label: {
                 show: false,
-       
               },
               itemStyle: {
-                areaColor: '#1D6FA3',   // 国家颜色
-                borderColor: '#ffffff', // 边界颜色
+                areaColor: '#1D6FA3',
+                borderColor: '#ffffff',
                 borderWidth: 0.5,
               },
               emphasis: {
-                disabled:true
+                disabled: true,
               },
               data: [
                 { name: 'China', value: 1393 },
@@ -52,17 +52,18 @@ const WorldMap = () => {
         };
 
         myChart.setOption(option);
-             // 鼠标移动事件监听
-             myChart.on('mousemove', params => {
-              if (params && params.name) {
-                setCountryName(params.name);
-              }
-            });
-    
-            // 鼠标移出清除名称
-            myChart.on('globalout', () => {
-              setCountryName('');
-            });
+
+        // 鼠标移动事件监听
+        myChart.on('mousemove', params => {
+          if (params && params.name) {
+            setCountryName(params.name);
+          }
+        });
+
+        // 鼠标移出清除名称
+        myChart.on('globalout', () => {
+          setCountryName('');
+        });
       })
       .catch(error => {
         console.error('加载 world.json 失败：', error);
@@ -73,28 +74,31 @@ const WorldMap = () => {
     };
   }, []);
 
-  return(
+  return (
     <div>
-    <div id="worldMap" style={{ width: '50vw', height: '50vh' }} />
-    {countryName && (
-        <div style={{
-          position: 'absolute',
-          bottom: 10,
-          left: '50%',
-          transform: 'translateX(-50%)',
-          background: 'rgba(0, 0, 0, 0.75)',
-          color: '#fff',
-          padding: '10px 20px',
-          borderRadius: '12px',
-          fontSize: '14px',
-          boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)',
-          transition: 'all 0.3s ease-in-out',
-          pointerEvents: 'none'
-        }}>
+      <div id="worldMap" style={{ width: '40vw', height: '50vh' }} />
+      {countryName && (
+        <div
+          style={{
+            position: 'absolute',
+            bottom: 10,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            background: 'rgba(0, 0, 0, 0.75)',
+            color: '#fff',
+            padding: '10px 20px',
+            borderRadius: '12px',
+            fontSize: '14px',
+            boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)',
+            transition: 'all 0.3s ease-in-out',
+            pointerEvents: 'none',
+          }}
+        >
           {countryName}
         </div>
       )}
     </div>
-)};
+  );
+};
 
 export default WorldMap;

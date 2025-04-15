@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Page2.module.less'
-
+import { useNavigate } from 'react-router-dom';
 import HostChart from './components/HostChart';
 import CountChart from './components/CountChart'
 import src1 from '../../images/two/circle.png'
@@ -12,16 +12,21 @@ function Page2(){
     width:'40vw',
     height:'50vh'
   }
+    const navigate=useNavigate()
+    const handleNavigation = (path) => {
+      navigate(path);
+    };
+  
 return (
     <div className={styles.container}>
         <span className={styles.title}>Olympic</span>
        <div className={styles.head}>
-        <span className={styles.choose1} >首页</span>
-        <span className={styles.choose2}>历届奥运数据可视化</span>
-        <span className={styles.choose3} >在线预测</span>
-        <span className={styles.choose4}>登录页面</span>
+        <span className={styles.choose1}  onClick={() => handleNavigation('/page1')}>首页</span>
+        <span className={styles.choose2}   onClick={() => handleNavigation('/page2')}>历届奥运数据可视化</span>
+        <span className={styles.choose3}  onClick={() => handleNavigation('/page3')}>在线预测</span>
+        <span className={styles.choose4}  onClick={() => handleNavigation('/page4')}>登录页面</span>
         
-        <span className={styles.choose5} >联系我们</span>
+        <span className={styles.choose5}  onClick={() => handleNavigation('/page5')}>联系我们</span>
         </div>
         <div className={styles.content1}>
       

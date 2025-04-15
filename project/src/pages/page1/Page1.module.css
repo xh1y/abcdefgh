@@ -18,8 +18,9 @@
 .image{
     transform: translateZ(-1px) scale(1.6);
     background-size: cover;
-
+     
     width: 100vw;
+    
     z-index: -1;
 }
 .text{

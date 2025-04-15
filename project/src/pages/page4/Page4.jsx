@@ -13,8 +13,8 @@ function Page4() {
     // 清除之前的错误提示
     setError('');
 
-    // 发送 POST 请求
     try {
+      // 发送 POST 请求
       const res = await fetch('http://localhost:8080/api/admin/login', {
         method: 'POST',
         headers: {
@@ -26,27 +26,28 @@ function Page4() {
         }),
       });
 
-      const data = await res.json();
-
-      if (res.ok) {
-        // 登录成功，保存 token，并跳转
-        localStorage.setItem('token', data.token);
-        navigate('/index');  // 使用 navigate 来跳转
-      } else {
-        // 登录失败，显示错误信息
-        setError(data.message);
+      // 如果响应不是成功的，抛出错误
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.message || '登录失败，请检查用户名和密码');
       }
-    // eslint-disable-next-line no-unused-vars
+
+      // 如果登录成功，保存 token，并跳转
+      const data = await res.json();
+      localStorage.setItem('token', data.token);
+      navigate('/index');  // 使用 navigate 来跳转
     } catch (error) {
-      // 请求失败时的错误处理
-      setError('请求失败，请稍后再试。');
+      // 捕获请求失败或响应失败时的错误并显示
+      setError(error.message || '请求失败，请稍后再试。');
     }
   };
+
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       handleLogin();
     }
   };
+
   return (
     <div className={styles.shell}>
       <div className={styles.card}>
@@ -57,7 +58,7 @@ function Page4() {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-      <input
+        <input
           type="password"
           placeholder="Password"
           value={password}
@@ -66,6 +67,7 @@ function Page4() {
         />
         <button className={styles.loginButton} onClick={handleLogin}>Login</button>
 
+        {/* 只在出错时显示错误信息 */}
         {error && <div className={styles.error}>{error}</div>}
 
         <div className={styles.signup}>

@@ -1,7 +1,12 @@
 import { useState } from 'react'
 import styles from './Page5.module.less'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 function Page5(){
+       const navigate=useNavigate()
+          const handleNavigation = (path) => {
+            navigate(path);
+          };
      const [click,setClick]=useState(false)
      const [question,setQuestion]=useState("")
      const [loading,setLoading]=useState(false)
@@ -44,10 +49,10 @@ function Page5(){
                  <span className={styles.title}>Olympic</span>
    <div className={styles.head}>
             
-           <span className={styles.choose1} >首页</span>
-           <span className={styles.choose2} >历届奥运数据可视化</span>
-           <span className={styles.choose3} >在线预测</span>
-           <span className={styles.choose4}>操作记录</span>
+           <span className={styles.choose1} onClick={() => handleNavigation('/page1')}>首页</span>
+           <span className={styles.choose2} onClick={() => handleNavigation('/page2')}>历届奥运数据可视化</span>
+           <span className={styles.choose3} onClick={() => handleNavigation('/page3')}>在线预测</span>
+           <span className={styles.choose4} onClick={() => handleNavigation('/page4')}>登录页面</span>
            
            <span className={styles.choose5} onClick={handleClick}>联系我们</span>
            </div>
@@ -61,7 +66,7 @@ function Page5(){
                             onChange={handleInputChange} 
                             className={styles.question} 
                             placeholder="请输入您的问题"
-                            rows={4} // 默认显示4行高度
+                            rows={4} // 默认显示4行
                         />
                          <button className={styles.btn} disabled={loading}>
                              {loading ? "提交中..." : "提交"}

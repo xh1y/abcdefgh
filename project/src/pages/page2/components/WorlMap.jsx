@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as echarts from 'echarts';
 
-const WorldMap = () => {
+const WorldMap = ({style={},showTooltipName=true}) => {
   const [countryName, setCountryName] = useState('');
 
   useEffect(() => {
@@ -75,9 +75,9 @@ const WorldMap = () => {
   }, []);
 
   return (
-    <div>
-      <div id="worldMap" style={{ width: '40vw', height: '50vh' }} />
-      {countryName && (
+    <div style={{ ...style,position: 'relative',  overflow: 'hidden' }}>
+      <div id="worldMap" style={{ width: '100%', height: '100%' }} />
+      {showTooltipName && countryName && (
         <div
           style={{
             position: 'absolute',

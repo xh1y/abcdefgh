@@ -47,9 +47,22 @@ function Page4() {
       handleLogin();
     }
   };
+    
+      const handleNavigation = (path) => {
+        navigate(path);
+      };
 
   return (
     <div className={styles.shell}>
+        <span className={styles.title}>Olympic</span>
+             <div className={styles.head}>
+              <span className={styles.choose1}  onClick={() => handleNavigation('/page1')}>首页</span>
+              <span className={styles.choose2}   onClick={() => handleNavigation('/page2')}>历届奥运数据可视化</span>
+              <span className={styles.choose3}  onClick={() => handleNavigation('/page3')}>在线预测</span>
+              <span className={styles.choose4}  onClick={() => handleNavigation('/page4')}>登录页面</span>
+              
+              <span className={styles.choose5}  onClick={() => handleNavigation('/page5')}>联系我们</span>
+              </div>
       <div className={styles.card}>
         <h1>Login</h1>
         <input

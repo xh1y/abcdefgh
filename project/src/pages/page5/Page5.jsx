@@ -11,9 +11,9 @@ function Page5(){
      const [question,setQuestion]=useState("")
      const [loading,setLoading]=useState(false)
      const [error, setError] = useState("") // 错误信息
-      function handleClick(event){
+      function handleClick(){
         console.log('点击')
-        event.stopPropagation();  // 防止事件冒泡
+      
            setClick(!click)
       }
       function handleInputChange(event){

@@ -18,7 +18,7 @@
     left: 5vw;
     background: none;
     border: none;
-    color: #333;
+    color: #5fe6d8;
     font-size: 16px;
     cursor: pointer;
     padding: 8px 16px;
@@ -33,9 +33,50 @@
   }
   
   
-.head{
-    color: #fff;
-}
+
 .content{
     color: #fff;
+}
+
+.head {
+  margin-bottom: 20px;
+}
+
+.content {
+  position: absolute;
+   top: 0;
+   width: 100vw;
+   height: 90vh;
+}
+
+.messageList {
+  list-style-type: none;
+  padding: 0;
+  height: 80vh;
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pageBtn {
+
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+
+.pageBtn:hover {
+  background-color: #f0f0f0;
+}
+
+.activePage {
+  background-color: #007bff;
+  color: white;
+  border: 1px solid #007bff;
 }

@@ -11,7 +11,9 @@ function Page5(){
      const [question,setQuestion]=useState("")
      const [loading,setLoading]=useState(false)
      const [error, setError] = useState("") // 错误信息
-      function handleClick(){
+      function handleClick(event){
+        console.log('点击')
+        event.stopPropagation();  // 防止事件冒泡
            setClick(!click)
       }
       function handleInputChange(event){
@@ -58,8 +60,11 @@ function Page5(){
            </div>
            {click && (
                  <div className={styles.content}>
-                     <p>We'd like to hear from you</p>
-                     <p>If you have any further questions, please let us know</p>
+                 
+                    <p className={styles.ip}>We'd like to hear from you</p>
+                    <p className={styles.ip}>If you have any further questions, please let us know</p>
+              
+         
                      <form onSubmit={handleSubmit}>
                      <textarea 
                             value={question} 

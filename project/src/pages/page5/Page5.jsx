@@ -32,19 +32,19 @@ function Page5(){
          setError("") // 清除任何之前的错误信息
 
          try {
-             // 发送 POST 请求到服务器
-             const response = await axios.post('http://localhost:8080/api/message', {
-                 question: question,
-             })
-             console.log(response.data) // 处理返回的数据
-             alert('提交成功！') // 提示用户提交成功
-         } catch (error) {
-             setError("提交失败，请稍后再试") // 设置错误信息
-             console.error("提交错误:", error)
-         } finally {
-             setLoading(false)
-         }
-     }
+            // 发送 POST 请求到服务器
+            const response = await axios.post('http://localhost:8080/api/message', {
+                content: question,
+            })
+            console.log(response.data) // 处理返回的数据
+            alert('提交成功！') // 提示用户提交成功
+        } catch (error) {
+            setError("提交失败，请稍后再试") // 设置错误信息
+            console.error("提交错误:", error)
+        } finally {
+            setLoading(false)
+        }
+    }
 
     return (
         <div className={styles.container}>

@@ -9,7 +9,7 @@ function Manager() {
     const [pageSize] = useState(4);  // 每页显示数量
     const [loading, setLoading] = useState(true);  // 加载状态
     const navigate = useNavigate();
-
+  
     // 请求数据的函数
     useEffect(() => {
         const checkAuthAndFetch = async () => {
@@ -31,12 +31,12 @@ function Manager() {
                 //     return;
                 // }
 
-                const response = await fetch('/api/admin/messages', {
+                const response = await fetch('http://localhost:8080/api/admin/messages', {
                     method: 'GET',
                     headers: {
-                        'Authorization': `Bearer ${token}`,
+                        'Authorization': `${token}`,
                         'Content-Type': 'application/json',
-                        'Cache-Control': 'no-cache'
+                       
                     }
                 });
                 if (!response.ok) {
@@ -102,7 +102,14 @@ function Manager() {
                             <li key={index} className={styles.messageItem}>
                                 <p><strong>内容:</strong> {msg.content}</p>
                                 <p><strong>创建时间:</strong> {new Date(msg.created_at).toLocaleString()}</p>
-                                <p><strong>状态:</strong> {msg.is_read ? '已读' : '未读'}</p>
+                                <p><strong>状态:</strong> {msg.is_read ? '已读' : '未读'}
+                                <button className={styles.button}
+                                
+                                // onClick={()=>handleClick(msg.id)}
+                                disabled={msg.is_read}
+                                >已阅</button>
+                                </p>
+                               
                             </li>
                         ))}
                     </ul>

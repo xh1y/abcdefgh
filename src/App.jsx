@@ -1,0 +1,49 @@
+import React, { useEffect } from 'react';
+import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Page1 from './pages/page1/page1';
+import Page2 from './pages/page2/page2';
+import Page3 from './pages/page3/Page3';
+import Page4 from './pages/page4/Page4';
+import Page5 from './pages/page5/Page5';
+import Manager from './pages/Manager/Manager';
+import ProtectedRoute from './components/ProtectedRoute';
+import './App.css';
+
+function App() {
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      // 在页面关闭或刷新时移除 token
+      localStorage.removeItem('token');
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, []);
+  return (
+    <div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Page1 />}></Route>
+          <Route path="/page1" element={<Page1 />}></Route>
+          <Route path="/page2" element={<Page2 />}></Route>
+          <Route path="/page3" element={<Page3 />}></Route>
+          <Route path="/page4" element={<Page4 />}></Route>
+          <Route path="/page5" element={<Page5 />}></Route>
+          <Route
+            path="/index"
+            element={
+              <ProtectedRoute>
+                <Manager />
+              </ProtectedRoute>
+            }
+          ></Route>
+        </Routes>
+      </Router>
+    </div>
+  );
+}
+
+export default App;

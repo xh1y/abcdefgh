@@ -1,0 +1,21 @@
+.head {
+    position: absolute;
+    top: 3vh;
+    left: 20vw;
+    width: 80vw;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    gap: 6vw;
+    z-index: 10;
+}
+.title {
+    position: absolute;
+    top: 2vh;
+    left: 3vw;
+    color: #fff;
+    font-size: 25px;
+    z-index: 10;
+    font-family: 'Microsoft YaHei', '微软雅黑', sans-serif;
+    font-weight: bold;
+}

@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // 引入 useNavigate
 import styles from './Page4.module.less';
 import Navigator from '../../components/navigator/Navigator.jsx';
+import Logo from './Logo.jsx';
+import Title from '../../components/Title/Title.jsx';
+
+import src from '../../images/four/left.png';
 
 function Page4() {
   const [username, setUsername] = useState('');
@@ -51,33 +55,63 @@ function Page4() {
 
   return (
     <div className={styles.shell}>
-      <span className={styles.title}>Olympic</span>
-      <div className={styles.head}>
-        <Navigator />
-      </div>
-      <div className={styles.card}>
-        <h1>登录</h1>
-        <input
-          type="text"
-          placeholder="Address"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          onKeyDown={handleKeyDown} // 监听键盘按下事件
-        />
-        <button className={styles.loginButton} onClick={handleLogin}>
-          登录
-        </button>
+      <Title />
 
-        {/* 只在出错时显示错误信息 */}
-        {error && <div className={styles.error}>{error}</div>}
+      <div className={styles.wrapper}>
+        <div className={styles.left}>
+          <img
+            src={src}
+            style={{
+              width: '100%',
+              height: '100%',
+            }}
+          />
+        </div>
+        <div className={styles.right}>
+          <div className={styles.card}>
+            <div className={styles.row}>
+              <div className={styles.logo}>
+                <Logo />
+              </div>
+            </div>
+            <h1>登录</h1>
+            <input
+              type="text"
+              placeholder="Address"
+              value={username}
+              style={{
+                height: '5vh',
+                marginTop: '1vh',
+                marginBottom: '1vh',
+                position: 'relative',
+                top: '3vh',
+              }}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              style={{
+                height: '5vh',
+                marginTop: '1vh',
+                marginBottom: '1vh',
+                position: 'relative',
+                top: '3.5vh',
+              }}
+              onChange={(e) => setPassword(e.target.value)}
+              onKeyDown={handleKeyDown} // 监听键盘按下事件
+            />
+            <button className={styles.loginButton} onClick={handleLogin}>
+              登录
+            </button>
 
-        <div className={styles.wave}></div>
+            {/* 只在出错时显示错误信息 */}
+            {error && <div className={styles.error}>{error}</div>}
+          </div>
+        </div>
+
+        {/*<div className={styles.wave}></div>*/}
       </div>
     </div>
   );

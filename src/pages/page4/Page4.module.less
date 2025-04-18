@@ -2,7 +2,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-image: url('../../images/two/bg.png');
+  background-image: url('../../images/four/bg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -16,32 +16,39 @@
   height: 100vh;
 
   display: flex;
-  justify-content: center;
-  align-items: center;
   font-family: 'Helvetica Neue', sans-serif;
 }
 .card {
-  width: 300px;
+  width: 100%;
   padding: 40px 30px 30px;
   background-color: #f8f5f0;
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
+  box-sizing: border-box;
+  height: 100%;
+
+  .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5vh;
+  }
 
   // 奥运五环 logo
-  &::before {
-    content: '';
-    display: block;
-    background: url('/path-to-your-olympic-rings.png') no-repeat center center;
-    background-size: 120px auto;
-    height: 100px;
-    margin-bottom: 10px;
+  .logo {
+    position: relative;
+    width: fit-content;
+    transform: scale(2);
+    top: 2vh;
   }
 
   h1 {
     font-size: 24px;
     color: #1d1d1f;
     margin-bottom: 20px;
+    position: relative;
+    top: 2.5vh;
   }
 
   input {
@@ -63,6 +70,9 @@
     font-size: 16px;
     cursor: pointer;
     margin-top: 10px;
+    height: 7vh;
+    position: relative;
+    top: 8vh;
   }
 
   .signup {
@@ -125,4 +135,25 @@
   color: #fff;
   font-family: 'Microsoft YaHei', '微软雅黑', sans-serif;
   font-weight: bold;
+}
+
+.wrapper {
+  width: 80vw;
+  height: 75vh;
+  display: flex;
+
+  justify-content: space-between;
+
+
+  .left {
+    width: 30vw;
+    height: 66.3vh;
+    //background: url("") no-repeat center;
+    //background-size: 100% 100%;
+  }
+
+  .right {
+    width: 30vw;
+    height: 66.3vh;
+  }
 }

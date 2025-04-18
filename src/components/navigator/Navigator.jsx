@@ -43,6 +43,17 @@ const Navigator = ({ onclick_5 }) => {
       >
         {token ? '查看留言' : '登录页面'}
       </span>
+      {token && (
+        <span
+          className={styles.choose4}
+          onClick={() => {
+            localStorage.removeItem('token');
+            navigate('/');
+          }}
+        >
+          退出登录
+        </span>
+      )}
     </>
   );
 };

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import ReactEcharts from 'echarts-for-react';
 import { athleteData } from '../settings.js';
 
+import classes from './athlete.module.less';
+
 const AthleteChart = () => {
   const [selectedAthlete, setSelectedAthlete] = useState('Michael Ii');
 
@@ -122,15 +124,14 @@ const AthleteChart = () => {
         onChange={(e) => setSelectedAthlete(e.target.value)}
         style={{
           marginBottom: '5px',
-          padding: '2px 3px',
-          fontSize: '11px',
-          borderRadius: '2px',
-          border: '1px solid #ccc',
+          padding: '5px 5px',
+          fontSize: '13px',
           outline: 'none',
         }}
+        className={classes.select}
       >
         {Object.keys(athleteData).map((name) => (
-          <option key={name} value={name}>
+          <option key={name} value={name} className={classes.option}>
             {name}
           </option>
         ))}

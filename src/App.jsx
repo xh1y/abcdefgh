@@ -10,18 +10,6 @@ import ProtectedRoute from './components/ProtectedRoute';
 import './App.css';
 
 function App() {
-  useEffect(() => {
-    const handleBeforeUnload = () => {
-      // 在页面关闭或刷新时移除 token
-      localStorage.removeItem('token');
-    };
-
-    window.addEventListener('beforeunload', handleBeforeUnload);
-
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-    };
-  }, []);
   return (
     <div>
       <Router>

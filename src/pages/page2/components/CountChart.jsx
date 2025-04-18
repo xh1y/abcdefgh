@@ -5,6 +5,15 @@ import { medalData } from '../settings.js';
 const CountChart = () => {
   // 处理数据 - 计算每个国家的总奖牌数
 
+  /** @type {Array<{country: string, total: number}>} */
+  let medalData_ = medalData.map((i) => ({
+    country: Object.keys(i)[0],
+    total: Object.values(i)[0],
+  }));
+
+  medalData_.sort((a, b) => b.total - a.total);
+  medalData_ = medalData_.slice(0, 5);
+
   const getOption = () => {
     return {
       title: {
@@ -59,7 +68,7 @@ const CountChart = () => {
       },
       yAxis: {
         type: 'category',
-        data: medalData.map((item) => item.country),
+        data: medalData_.map((item) => item.country),
         axisLabel: {
           color: '#fff',
           fontSize: 12,
@@ -74,7 +83,7 @@ const CountChart = () => {
         {
           name: '奖牌总数',
           type: 'bar',
-          data: medalData.map((item) => item.total),
+          data: medalData_.map((item) => item.total),
           itemStyle: {
             color: function (params) {
               // 为不同国家设置不同颜色

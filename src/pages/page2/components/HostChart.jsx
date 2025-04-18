@@ -20,8 +20,8 @@ const HostChart = () => {
         {
           // 副标题（靠右）
           subtext: '1896-2032年数据',
-          right: '10%', // 调整这个值控制右移距离
-          top: 12, // 调整这个值控制垂直位置
+          right: '20%',
+          top: '83%',
           subtextStyle: {
             fontSize: 12,
             color: '#fff',
@@ -38,8 +38,8 @@ const HostChart = () => {
       },
       legend: {
         orient: 'vertical',
-        left: 0,
-        top: 10,
+        left: 50,
+        top: 50,
         textStyle: {
           fontSize: 12,
           color: '#fff',
@@ -50,7 +50,7 @@ const HostChart = () => {
           name: '举办次数',
           type: 'pie',
           radius: ['40%', '70%'],
-          center: ['70%', '55%'],
+          center: ['68%', '48%'],
           avoidLabelOverlap: false,
           itemStyle: {
             borderRadius: 3,

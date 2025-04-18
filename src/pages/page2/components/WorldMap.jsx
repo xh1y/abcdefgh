@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import * as echarts from 'echarts';
-
 import worldJson from '../../../assets/world.json';
 
-const WorldMap = ({ style = {}, showTooltipName = true }) => {
+const WorldMap = ({ style = {}, showTooltipName = true, onCountryClick }) => {
   const [countryName, setCountryName] = useState('');
-
+  const [zoom, setZoom] = useState(1.2);  // 默认缩放比例
+  const [center, setCenter] = useState([0, 20]);  // 默认中心位置
+  
   useEffect(() => {
     const chartDom = document.getElementById('worldMap');
     const myChart = echarts.init(chartDom);
 
-    // fetch('world.json')
-    //   .then((response) => response.json())
-    //   .then((worldJson) => {
     echarts.registerMap('world', worldJson);
 
     const option = {
@@ -20,30 +18,19 @@ const WorldMap = ({ style = {}, showTooltipName = true }) => {
         trigger: 'item',
         formatter: '{b}',
         backgroundColor: 'rgba(0,0,0,0.7)',
-        textStyle: {
-          color: '#fff',
-          fontSize: 10,
-        },
+        textStyle: { color: '#fff', fontSize: 10 },
       },
       series: [
         {
           type: 'map',
           map: 'world',
-          roam: true, // ✅ 允许缩放和拖拽
+          roam: true,
           aspectScale: 1,
-          center: [0, 20], // ✅ 居中位置（经度, 纬度）
-          zoom: 1.2, // ✅ 初始缩放比例
-          label: {
-            show: false,
-          },
-          itemStyle: {
-            areaColor: '#1D6FA3',
-            borderColor: '#ffffff',
-            borderWidth: 0.5,
-          },
-          emphasis: {
-            disabled: true,
-          },
+          center: center,
+          zoom: zoom,
+          label: { show: false },
+          itemStyle: { areaColor: '#1D6FA3', borderColor: '#ffffff', borderWidth: 0.5 },
+          emphasis: { disabled: true },
           data: [
             { name: 'China', value: 1393 },
             { name: 'India', value: 1366 },
@@ -55,22 +42,26 @@ const WorldMap = ({ style = {}, showTooltipName = true }) => {
 
     myChart.setOption(option);
 
-    // 鼠标移动事件监听
-    myChart.on('mousemove', (params) => {
+    myChart.on('click', (params) => {
       if (params && params.name) {
         setCountryName(params.name);
+        if (onCountryClick) {
+          onCountryClick(params.name);  // 触发传递给父组件的回调
+        }
+        const currentZoom = myChart.getOption().series[0].zoom;
+        const currentCenter = myChart.getOption().series[0].center;
+        setZoom(currentZoom);  // 保存 zoom
+        setCenter(currentCenter);  // 保存 center
       }
     });
-
-    // 鼠标移出清除名称
-    myChart.on('globalout', () => {
-      setCountryName('');
-    });
+    
+ 
+    
 
     return () => {
       myChart.dispose();
     };
-  }, []);
+  }, [onCountryClick]);
 
   return (
     <div style={{ ...style, position: 'relative', overflow: 'hidden' }}>
@@ -79,7 +70,7 @@ const WorldMap = ({ style = {}, showTooltipName = true }) => {
         <div
           style={{
             position: 'absolute',
-            bottom: 10,
+            top:0,
             left: '50%',
             transform: 'translateX(-50%)',
             background: 'rgba(0, 0, 0, 0.75)',
@@ -98,5 +89,5 @@ const WorldMap = ({ style = {}, showTooltipName = true }) => {
     </div>
   );
 };
+export default WorldMap
 
-export default WorldMap;

@@ -11,36 +11,28 @@
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
+  color: #f5f5f5;
+  font-family: 'Microsoft YaHei', '微软雅黑', sans-serif;
 }
 
 .head {
   position: absolute;
   top: 3vh;
   left: 20vw;
-
   width: 80vw;
   height: 10vh;
   display: flex;
   flex-direction: row;
   gap: 6vw;
+ 
 }
+
 .title {
   position: absolute;
   top: 2vh;
   left: 3vw;
   color: #f5f5f5;
-  font-size: 25px;
-  font-family: 'Microsoft YaHei', '微软雅黑', sans-serif;
-  font-weight: bold;
-}
-.choose1,
-.choose2,
-.choose3,
-.choose4,
-.choose5 {
-  font-size: 20px;
-  color: #fff;
-  font-family: 'Microsoft YaHei', '微软雅黑', sans-serif;
+  font-size: 30px;
   font-weight: bold;
 }
 
@@ -50,12 +42,164 @@
   width: 100%;
   overflow: hidden;
   margin-top: 10vh;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
 .data {
+
   flex: 1;
   background: rgba(0, 0, 0, 0.4);
   color: #fff;
   padding: 20px;
   overflow-y: auto;
+  
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
+}
+
+/* 国家卡片样式 */
+.countryCard {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: -18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  h3 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+.medalInfo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.medalRow {
+  display: flex;
+  gap: 20px;
+  
+  span {
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .gold {
+    background: linear-gradient(135deg, rgba(255,215,0,0.3), rgba(255,215,0,0.1));
+    color: #FFD700;
+  }
+  
+  .silver {
+    background: linear-gradient(135deg, rgba(192,192,192,0.3), rgba(192,192,192,0.1));
+    color: #C0C0C0;
+  }
+  
+  .bronze {
+    background: linear-gradient(135deg, rgba(205,127,50,0.3), rgba(205,127,50,0.1));
+    color: #CD7F32;
+  }
+}
+
+.total {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background: rgba(0, 102, 204, 0.3);
+  padding: 8px 15px;
+  border-radius: 20px;
+}
+
+/* 表格样式 */
+.tableContainer {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.medalTable {
+  width: 100%;
+  border-collapse: collapse;
+  
+  th, td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  th {
+    background: rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+    position: sticky;
+    top: 0;
+    
+    &:hover {
+      background: rgba(0, 0, 0, 0.5);
+    }
+  }
+  
+  tr:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .highlightedRow {
+    background: rgba(0, 95, 179, 0.3);
+    font-weight: bold;
+  }
+  
+  .gold {
+    color: #FFD700;
+    font-weight: bold;
+  }
+  
+  .silver {
+    color: #C0C0C0;
+    font-weight: bold;
+  }
+  
+  .bronze {
+    color: #CD7F32;
+    font-weight: bold;
+  }
+}
+
+.noSelection {
+  
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+  text-align: center;
+  padding: 20px;
+  font-size: 30px;
+}
+
+/* 响应式调整 */
+@media (max-height: 800px) {
+  .worldmapWrapper {
+    flex: 0 0 60vh;
+    margin-top: 8vh;
+  }
+  
+  .data {
+    padding: 15px;
+  }
+  
+  .medalTable {
+    th, td {
+      padding: 8px 12px;
+      font-size: 14px;
+    }
+  }
 }

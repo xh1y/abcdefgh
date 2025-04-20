@@ -57,16 +57,16 @@ function Page4() {
     <div className={styles.shell}>
       <Title />
 
+      <div className={styles.left}>
+        <img
+          src={src}
+          style={{
+            width: '100%',
+            height: '100%',
+          }}
+        />
+      </div>
       <div className={styles.wrapper}>
-        <div className={styles.left}>
-          <img
-            src={src}
-            style={{
-              width: '100%',
-              height: '100%',
-            }}
-          />
-        </div>
         <div className={styles.right}>
           <div className={styles.card}>
             <div className={styles.row}>

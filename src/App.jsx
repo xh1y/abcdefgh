@@ -8,29 +8,43 @@ import Page5 from './pages/page5/Page5';
 import Manager from './pages/Manager/Manager';
 import ProtectedRoute from './components/ProtectedRoute';
 import './App.css';
+import { ConfigProvider } from 'antd';
 
 function App() {
   return (
-    <div>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Page1 />}></Route>
-          <Route path="/page1" element={<Page1 />}></Route>
-          <Route path="/page2" element={<Page2 />}></Route>
-          <Route path="/page3" element={<Page3 />}></Route>
-          <Route path="/page4" element={<Page4 />}></Route>
-          <Route path="/page5" element={<Page5 />}></Route>
-          <Route
-            path="/index"
-            element={
-              <ProtectedRoute>
-                <Manager />
-              </ProtectedRoute>
-            }
-          ></Route>
-        </Routes>
-      </Router>
-    </div>
+    <ConfigProvider
+      theme={{
+        components: {
+          Table: {
+            footerBg: '#ffffff88',
+            bodySortBg: '#ffffff00',
+            headerBg: '#ffffff55',
+            rowSelectedHoverBg: '#bae0ff55',
+          },
+        },
+      }}
+    >
+      <div>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Page1 />}></Route>
+            <Route path="/page1" element={<Page1 />}></Route>
+            <Route path="/page2" element={<Page2 />}></Route>
+            <Route path="/page3" element={<Page3 />}></Route>
+            <Route path="/page4" element={<Page4 />}></Route>
+            <Route path="/page5" element={<Page5 />}></Route>
+            <Route
+              path="/index"
+              element={
+                <ProtectedRoute>
+                  <Manager />
+                </ProtectedRoute>
+              }
+            ></Route>
+          </Routes>
+        </Router>
+      </div>
+    </ConfigProvider>
   );
 }
 
